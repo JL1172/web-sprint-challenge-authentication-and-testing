@@ -12,9 +12,8 @@ describe("[REGISTER Endpoint /api/auth/register]", () => {
   test("[1]Returns newly registered user", async () => {
     const user = { username: "alaina", password: "alainalang" };
     const res = await request(server).post("/api/auth/register").send(user);
-    expect(res.body[0]).toHaveProperty("username")
-    expect(res.body[0]).toHaveProperty("password");
-    expect(res.body[0]).toHaveProperty("id");
+    expect(res.body).toHaveProperty("username","alaina")
+    expect(res.body).toHaveProperty("id");
     expect(res.status).toBe(201);
   })
   test("[2]Tests error handling for username that is taken", async () => {
