@@ -79,11 +79,4 @@ router.post('/login', validateLogin, async (req, res, next) => {
   */
 });
 
-router.use((error, req, res, next) => { //eslint-disable-line
-  res.status(error.status || 500).json({
-    message: error.message,
-    stack: error.stack,
-  })
-})
-
 module.exports = router;
